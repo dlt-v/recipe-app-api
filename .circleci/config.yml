@@ -29,6 +29,10 @@ jobs:
     # CircleCI will report the results back to your VCS provider.
     steps:
       - checkout
+      #setup docker so you can use docker commands, important! - Delta
+      - setup_remote_docker:
+          docker_layer_caching: false
+          version: 20.10.7
       - python/install-packages:
           pkg-manager: pip
           # app-dir: ~/project/package-directory/  # If you're requirements.txt isn't in the root directory.
